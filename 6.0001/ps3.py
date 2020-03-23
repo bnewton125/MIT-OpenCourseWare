@@ -386,8 +386,13 @@ def play_game(word_list):
     word_list: list of lowercase strings
     """
     num_hands = input("Enter total number of hands: ")
-    while int(num_hands) <= 0 or not num_hands.isnumeric():
-        num_hands = input("Please enter a number greater than 0: ")
+    condition = False
+    while not condition:
+        if num_hands.isnumeric():
+            if int(num_hands) > 0:
+                condition = True
+        else:
+            num_hands = input("Please enter a number greater than 0: ")
     num_hands = int(num_hands)
     score = 0
     while num_hands > 0:
